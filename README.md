@@ -2,7 +2,7 @@
 
 > A security intelligence platform for AI-generated code - because apparently we now need software to babysit the software that writes our software. We live in interesting times.
 
-GuardRail watches the code your AI assistant confidently hallucinated at 2am, runs it through a risk analysis pipeline, and politely tells you which parts are going to page you on a Saturday. Think of it as a smoke detector for your codebase, except it also explains *why* there's smoke.
+GuardRail watches the code your AI assistant confidently hallucinated at 2am, runs it through a risk analysis pipeline, and politely tells you which parts are going to page you on a Saturday. Think of it as a smoke detector for your codebase, except it also explains _why_ there's smoke.
 
 ---
 
@@ -18,7 +18,7 @@ It's a learning project built to mirror a real-world Backend Engineer role (AI +
 
 ## 🧱 The Architecture (a.k.a. "where everything lives")
 
-We're following **Clean Architecture**, which is a fancy way of saying *"dependencies point inward and nobody talks to the database directly like an animal."*
+We're following **Clean Architecture**, which is a fancy way of saying _"dependencies point inward and nobody talks to the database directly like an animal."_
 
 ```
         ┌─────────────────────────────────────────┐
@@ -50,7 +50,7 @@ We're following **Clean Architecture**, which is a fancy way of saying *"depende
 ## 🗺️ The Flow (a day in the life of a code submission)
 
 1. **Submission arrives** at the API. ("Please review my masterpiece.")
-2. **Event gets queued.** The API doesn't analyze anything itself — it just takes a number and walks away, like a well-adjusted adult.
+2. **Event gets queued.** The API doesn't analyze anything itself - it just takes a number and walks away, like a well-adjusted adult.
 3. **A worker picks it up** off the queue, asynchronously, on its own time.
 4. **Analysis runs:** pattern checks catch the usual suspects, the LLM catches the creative ones.
 5. **Findings get saved** to PostgreSQL.
@@ -62,14 +62,14 @@ This is **event-driven architecture** — the API and the worker are decoupled, 
 
 ## 🧰 Tech Stack (the grown-up tools)
 
-| Thing | Tool | Why |
-|---|---|---|
-| Language | **Python 3.12+** | It's what the AI/LLM world actually speaks |
-| API framework | **FastAPI** | Async, fast, generates its own docs so we don't have to |
-| Database | **PostgreSQL** | The reliable friend who always shows up |
-| Queue | **Message queue (SQS-style)** | So the API and worker can ignore each other gracefully |
-| Cloud | **AWS** | Where the magic (and the bill) happens |
-| Brains | **An LLM** | To catch the risks regex never could |
+| Thing         | Tool                          | Why                                                     |
+| ------------- | ----------------------------- | ------------------------------------------------------- |
+| Language      | **Python 3.12+**              | It's what the AI/LLM world actually speaks              |
+| API framework | **FastAPI**                   | Async, fast, generates its own docs so we don't have to |
+| Database      | **PostgreSQL**                | The reliable friend who always shows up                 |
+| Queue         | **Message queue (SQS-style)** | So the API and worker can ignore each other gracefully  |
+| Cloud         | **AWS**                       | Where the magic (and the bill) happens                  |
+| Brains        | **An LLM**                    | To catch the risks regex never could                    |
 
 ---
 
@@ -101,5 +101,4 @@ uvicorn app.api.main:app --reload
 # Visit http://127.0.0.1:8000/health and bask in {"status": "ok"}
 ```
 
-*Built with caffeine, Clean Architecture, and a healthy distrust of code that writes itself.* ☕
-
+_Built with caffeine, Clean Architecture, and a healthy distrust of code that writes itself._ ☕
